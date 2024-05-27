@@ -1,1 +1,1 @@
-# experimental-econ
+# oTree Experimental Economics
