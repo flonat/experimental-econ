@@ -1,5 +1,5 @@
 from . import models
-from ._builtin import Page
+from otree.api import Page, WaitPage
 from .models import Constants
 
 class Introduction(Page):
