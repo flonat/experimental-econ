@@ -42,10 +42,11 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',  # Keep CSRF middleware enabled
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'yourapp.middlewares.DisableCSRFForSpecificViewsMiddleware',  # Add custom middleware
 ]
 
 TEMPLATES = [
@@ -106,3 +107,7 @@ INSTALLED_OTREE_APPS = [
     'post_game_questions',
     'end',
 ]
+
+CSRF_TRUSTED_ORIGINS = ['https://romarin.fly.dev/']
+CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_HTTPONLY = False

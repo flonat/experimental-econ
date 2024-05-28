@@ -3,6 +3,9 @@ from otree.api import Page, WaitPage
 from .models import Constants
 
 class Intro(Page):
+    def is_displayed(self):
+        return self.round_number == 1
+
     def get_template_name(self):
         return 'Intro.html'
 

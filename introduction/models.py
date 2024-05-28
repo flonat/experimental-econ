@@ -7,7 +7,7 @@ import random
 class Constants(BaseConstants):
     name_in_url = 'introduction'
     players_per_group = None  # Adjust as needed for each game
-    num_rounds = 2
+    num_rounds = 1
     game_sequence = ['PrisonersDilemma', 'PublicGoods', 'MarketEntry']
     endowment = c(10)
     multiplier = 2
@@ -40,6 +40,13 @@ class Group(BaseGroup):
             p.payoff = Constants.endowment - p.contribution + individual_share
 
 class Player(BasePlayer):
+    consent = models.BooleanField(
+        choices=[
+            [True, 'Yes'],
+            [False, 'No']
+        ],
+        widget=widgets.RadioSelect
+    )
     decision = models.StringField(
         choices=['C', 'D'],
         widget=widgets.RadioSelect,
@@ -49,9 +56,10 @@ class Player(BasePlayer):
         min=0, max=Constants.endowment,
         label="How much will you contribute to the public pool?"
     )
-    participant_type = models.StringField(
-        choices=['student', 'random', 'prolific'],
+    is_student = models.StringField(
+        choices=[('yes', 'Yes'), ('no', 'No')],
         widget=widgets.RadioSelect,
         label='Are you a student in the Experimental Economics class of Prof. Rosemarie Nagel?'
     )
+    participant_type = models.StringField(choices=['student', 'random', 'prolific'])
     fictitious_name = models.StringField(blank=True)

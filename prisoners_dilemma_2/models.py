@@ -33,19 +33,23 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     decision = models.StringField(
-        choices=[('C', 'Cooperate'), ('D', 'Defect')],
-        doc="""This player's decision""",
-        widget=widgets.RadioSelect
+        choices=['Cooperate', 'Defect'],
+        widget=widgets.RadioSelect,
+        label='Your decision:'
     )
-    computer_decision = models.StringField()
+    computer_decision = models.StringField(
+        choices=['Cooperate', 'Defect'],
+        widget=widgets.RadioSelect,
+        label='Computer decision:'
+    )
     treatment = models.StringField()
 
     def set_payoff(self):
-        if self.treatment in ['choice_blindness', 'both']:
-            # Alter the decision to simulate choice blindness
-            if self.decision == 'C':
-                self.decision = 'D'
-            else:
-                self.decision = 'C'
-        self.computer_decision = random.choice(['C', 'D'])
-        self.payoff = Constants.payoff_matrix[self.decision][self.computer_decision]
+        if self.decision == 'Cooperate' and self.computer_decision == 'Cooperate':
+            self.payoff = 3
+        elif self.decision == 'Cooperate' and self.computer_decision == 'Defect':
+            self.payoff = 0
+        elif self.decision == 'Defect' and self.computer_decision == 'Cooperate':
+            self.payoff = 5
+        elif self.decision == 'Defect' and self.computer_decision == 'Defect':
+            self.payoff = 1

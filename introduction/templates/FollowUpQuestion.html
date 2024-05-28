@@ -7,22 +7,25 @@
     <h2>Follow-Up Question</h2>
     <p>Are you a student in the Experimental Economics class of Prof. Rosemarie Nagel?</p>
     <form method="post">
-        <input type="radio" name="is_student" value="yes" required> Yes<br>
-        <input type="radio" name="is_student" value="no" required> No<br>
+        <input type="radio" name="participant_type" value="student" required> Yes<br>
+        <input type="radio" name="participant_type" value="random" required> No<br>
+        <input type="radio" name="participant_type" value="prolific" required> Prolific<br>
         <div id="fictitiousName" style="display:none;">
-            <p>Now that you've given us your consent, let's get serious: what's your fictitious name?</p>
+            <p>What's your fictitious name?</p>
             <input type="text" name="fictitious_name" required>
         </div>
         <button type="submit">Next</button>
     </form>
 </div>
 <script>
-    document.querySelector('input[name="is_student"]').addEventListener('change', function() {
-        if (this.value === 'yes') {
-            document.getElementById('fictitiousName').style.display = 'block';
-        } else {
-            document.getElementById('fictitiousName').style.display = 'none';
-        }
+    document.querySelectorAll('input[name="participant_type"]').forEach(function(element) {
+        element.addEventListener('change', function() {
+            if (this.value === 'student') {
+                document.getElementById('fictitiousName').style.display = 'block';
+            } else {
+                document.getElementById('fictitiousName').style.display = 'none';
+            }
+        });
     });
 </script>
 {% endblock %}

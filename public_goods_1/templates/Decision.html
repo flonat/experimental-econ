@@ -7,7 +7,6 @@
     Please decide how much of your endowment you want to contribute to the public pot.
 </p>
 <form method="post">
-    {% csrf_token %}
     {{ formfield player.contribution }}
     <button type="submit">Submit</button>
 </form>

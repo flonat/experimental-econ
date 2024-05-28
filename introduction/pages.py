@@ -1,7 +1,6 @@
 from otree.api import Currency as c, currency_range
 from otree.api import Page, WaitPage
-from . import models
-from .models import Constants
+from .models import Constants, Player
 
 class Introduction(Page):
     def is_displayed(self):
@@ -9,6 +8,9 @@ class Introduction(Page):
 
     def get_template_name(self):
         return 'Introduction.html'
+
+    def before_next_page(self):
+        pass  # No need to store consent variable anymore
 
 class InformationSheet(Page):
     def get_template_name(self):
@@ -19,16 +21,6 @@ class ProlificSheet(Page):
         return 'ProlificSheet.html'
 
 class ConsentForm(Page):
-    form_model = 'player'
-    form_fields = ['consent']
-
-    def is_displayed(self):
-        return self.round_number == 1
-
-    def before_next_page(self):
-        if self.player.consent == 'no':
-            self.participant.vars['consent'] = False
-
     def get_template_name(self):
         return 'ConsentForm.html'
 
@@ -45,7 +37,7 @@ class FollowUpQuestion(Page):
 
 class GamesIntro(Page):
     def is_displayed(self):
-        return self.round_number == 1 and self.participant.vars.get('consent', True)
+        return self.round_number == 1
 
     def get_template_name(self):
         return 'GamesIntro.html'
@@ -53,7 +45,7 @@ class GamesIntro(Page):
 page_sequence = [
     Introduction,
     InformationSheet,
-    ProlificSheet,
+    # ProlificSheet,
     ConsentForm,
     FollowUpQuestion,
     GamesIntro,

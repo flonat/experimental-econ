@@ -4,6 +4,9 @@ from otree.api import Page, WaitPage
 from .models import Constants
 
 class GeneralQuestions(Page):
+    def is_displayed(self):
+        return self.round_number == 1
+ 
     form_model = 'player'
     form_fields = ['age', 'gender', 'education', 'employment']
     

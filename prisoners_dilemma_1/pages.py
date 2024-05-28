@@ -3,6 +3,9 @@ from otree.api import Page, WaitPage
 from .models import Constants
 
 class Intro(Page):
+    def is_displayed(self):
+        return self.round_number == 1
+
     def get_template_name(self):
         return 'Intro.html'
 
@@ -16,6 +19,8 @@ class Decision(Page):
         return None
 
     def before_next_page(self):
+        # Set the computer's decision here
+        self.player.computer_decision = 'Defect'  # or some logic to determine the computer's decision
         self.player.set_payoff()
         
     def get_template_name(self):

@@ -7,7 +7,6 @@
     Please choose whether to cooperate or defect.
 </p>
 <form method="post">
-    {% csrf_token %}
     {{ formfield player.decision }}
     <button type="submit">Submit</button>
 </form>
