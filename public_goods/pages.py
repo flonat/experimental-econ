@@ -2,10 +2,10 @@ from . import models
 from otree.api import Page, WaitPage
 from .models import Constants
 
-class Introduction(Page):
+class Intro(Page):
     pass
 
-class Contribution(Page):
+class Decision(Page):
     form_model = 'player'
     form_fields = ['contribution']
 

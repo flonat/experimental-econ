@@ -2,10 +2,10 @@ from . import models
 from otree.api import Page, WaitPage
 from .models import Constants
 
-class Introduction(Page):
+class Intro(Page):
     pass
 
-class MarketEntryDecision(Page):
+class Decision(Page):
     form_model = 'player'
     form_fields = ['decision']
 
@@ -23,7 +23,7 @@ class MarketEntryDecision(Page):
                 self.player.decision = 'Enter'
         self.player.set_payoff()
 
-class MarketEntryResults(Page):
+class Results(Page):
     def vars_for_template(self):
         return {
             'my_decision': self.player.decision,

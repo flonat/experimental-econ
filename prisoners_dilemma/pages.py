@@ -2,7 +2,7 @@ from . import models
 from otree.api import Page, WaitPage
 from .models import Constants
 
-class Introduction(Page):
+class Intro(Page):
     pass
 
 class Decision(Page):
@@ -25,4 +25,4 @@ class Results(Page):
             'my_payoff': self.player.payoff,
         }
 
-page_sequence = [Introduction, Decision, Results]
+page_sequence = [Intro, Decision, Results]
