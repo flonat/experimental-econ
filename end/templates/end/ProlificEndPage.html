@@ -1,0 +1,14 @@
+{% extends "global/Page.html" %}
+{% block title %}Thank You{% endblock %}
+
+{% block content %}
+<h2>Thank You</h2>
+<img src="{% static 'otree-experimental-econ/images/end_image.jpg' %}" style="width: 937px; height: 400px;" alt="End Page Image" />
+        <br />
+        <span style="font-size:12px;">&copy; Melita / Adobe Stock</span>
+        <br /><br />
+<p>Thank you very much for your participation! Please click the button below to return to Prolific.</p>
+<form method="post" action="https://app.prolific.co/submissions/complete?cc=XXXXXX">
+    <button type="submit">Return to Prolific</button>
+</form>
+{% endblock %}
