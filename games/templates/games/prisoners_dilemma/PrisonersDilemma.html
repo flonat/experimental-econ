@@ -1,0 +1,13 @@
+<!-- games/templates/games/prisoners_dilemma/PrisonersDilemma.html -->
+{% extends "global/Page.html" %}
+{% block title %}Prisoner's Dilemma{% endblock %}
+
+{% block content %}
+<h2>Prisoner's Dilemma</h2>
+<p>Make your choice:</p>
+<form method="post">
+    {% csrf_token %}
+    {{ formfield player.decision }}
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+<!-- games/templates/games/prisoners_dilemma/Results.html -->
+{% extends "global/Page.html" %}
+{% block title %}Results{% endblock %}
+
+{% block content %}
+<h2>Game Results</h2>
+<p>Your choice: {{ player.decision }}</p>
+<p>Opponent's choice: {{ opponent_decision }}</p>
+<p>Your payoff: {{ payoff }}</p>
+<form method="post">
+    <button type="submit">Next</button>
+</form>
+{% endblock %}

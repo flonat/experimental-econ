@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load static %}
+{% block title %}Games Introduction{% endblock %}
+
+{% block content %}
+<div style="text-align: center;">
+    <img style="width: 672px; height: 448px;" src="{% static 'prisoner_dilemma_game/images/your_image.jpg' %}" alt="Games Introduction Image">
+</div>
+<div style="text-align: center;">
+    <span style="font-size:13px;">© Studio Romantic / Adobe Stock</span>
+</div>
+<div style="text-align: center;">&nbsp;</div>
+<div style="text-align: left;">
+    It's now time to play some games. All games involve you and another player (don't worry, the other player has already played, there's no need for you to wait).
+</div>
+<div style="text-align: left;"><br></div>
+<div style="text-align: left;">
+    After you make your play, "The Algorithm" or more simply put, the computer is going to compute and present the results to you.
+</div>
+<div style="text-align: left;"><br></div>
+<div style="text-align: left;">
+    You will be asked a few questions after playing each game, and then at the end another set of questions.
+</div>
+<div style="text-align: left;"><br></div>
+<div style="text-align: left;">
+    Are you ready to play? (yes, that was rhetorical)
+</div>
+<form method="post">
+    <button type="submit">Start Games</button>
+</form>
+{% endblock %}

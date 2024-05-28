@@ -1,0 +1,13 @@
+{% extends "global/Page.html" %}
+    {% block title %}Specific Questions{% endblock %}
+
+    {% block content %}
+    <h2>Specific Questions</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ formfield player.feelings_towards_algorithms }}
+        {{ formfield player.time_pressure }}
+        {{ formfield player.fairness_of_algorithms }}
+        <button type="submit">Submit</button>
+    </form>
+    {% endblock %}
