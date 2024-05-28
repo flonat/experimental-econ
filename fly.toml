@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for otree-experimental-econ on 2024-05-28T03:49:58+02:00
+# fly.toml app configuration file generated for romarin on 2024-05-28T04:09:28+02:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'otree-experimental-econ'
+app = 'romarin'
 primary_region = 'mad'
 console_command = '/code/manage.py shell'
 
