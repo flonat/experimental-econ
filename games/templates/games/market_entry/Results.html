@@ -1,10 +1,17 @@
-<!-- games/templates/games/market_entry/MarketEntryResults.html -->
 {% extends "global/Page.html" %}
-{% block title %}Market Entry Game Results{% endblock %}
+{% block title %}Results{% endblock %}
 
 {% block content %}
-<h2>Market Entry Game Results</h2>
-<p>Display the results of the market entry game here, including payoffs and any other relevant information.</p>
+<h2>Results</h2>
+<p>
+    You are a {{ role }}.
+</p>
+<p>
+    You chose to {{ my_decision }}.
+</p>
+<p>
+    Your payoff: {{ payoff }}
+</p>
 <form method="post">
     <button type="submit">Next</button>
 </form>

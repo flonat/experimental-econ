@@ -7,7 +7,7 @@ SESSION_CONFIGS = [
             'introduction',
             'prisoners_dilemma',  # Add the Prisoner's Dilemma game here
             'public_goods',
-            'market_entry',
+            'market_entry',  # Add the Market Entry game here
             'post_game_questions',
             'end'
         ],
