@@ -1,7 +1,7 @@
 from otree.api import Currency as c, currency_range
-    from ._builtin import Page, WaitPage
+from ._builtin import Page, WaitPage
 
-    class EndPage(Page):
-        pass
+class EndPage(Page):
+    pass
 
-    page_sequence = [EndPage]
+page_sequence = [EndPage]

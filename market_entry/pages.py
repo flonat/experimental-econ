@@ -27,7 +27,7 @@ class MarketEntryResults(Page):
     def vars_for_template(self):
         return {
             'my_decision': self.player.decision,
-            'role': self.player.role,
+            'player_role': self.player.player_role,
             'payoff': self.player.payoff,
         }
 

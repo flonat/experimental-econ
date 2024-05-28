@@ -1,24 +1,17 @@
 import os
 from pathlib import Path
 
-# Define the BASE_DIR to be the directory where settings.py is located
 BASE_DIR = Path(__file__).resolve().parent
 
-# Set the secret key from the environment or provide a default value
 SECRET_KEY = os.environ.get('SECRET_KEY', 'your-default-secret-key')
-
-# Set the admin password from the environment
 ADMIN_PASSWORD = os.environ.get('OTREE_ADMIN_PASSWORD')
 
-# Other Django settings
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-# Language code
-LANGUAGE_CODE = 'en-us'  # Add this line`
+LANGUAGE_CODE = 'en-us'
 
-# Database settings
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -26,7 +19,6 @@ DATABASES = {
     }
 }
 
-# Application definition
 INSTALLED_APPS = [
     'otree',
     'django.contrib.admin',
@@ -35,7 +27,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Add your oTree apps here
     'introduction',
     'prisoners_dilemma',
     'public_goods',
@@ -70,26 +61,26 @@ TEMPLATES = [
     },
 ]
 
-# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# oTree settings
-INSTALLED_OTREE_APPS = [
-    'introduction',
-    'prisoners_dilemma',
-    'public_goods',
-    'market_entry',
-    'post_game_questions',
-    'end',
+# List of directories where Django will search for additional static files
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
 ]
 
+SESSION_CONFIG_DEFAULTS = {
+    'real_world_currency_per_point': 1.00,
+    'participation_fee': 0.00,
+    'doc': "",
+}
+
 SESSION_CONFIGS = [
-    dict(
-        name='otree_experimental_econ',
-        display_name="Experimental Economics Survey",
-        num_demo_participants=4,
-        app_sequence=[
+    {
+        'name': 'otree_experimental_econ',
+        'display_name': "Experimental Economics Survey",
+        'num_demo_participants': 4,
+        'app_sequence': [
             'introduction',
             'prisoners_dilemma',
             'public_goods',
@@ -97,5 +88,14 @@ SESSION_CONFIGS = [
             'post_game_questions',
             'end'
         ],
-    ),
+    },
+]
+
+INSTALLED_OTREE_APPS = [
+    'introduction',
+    'prisoners_dilemma',
+    'public_goods',
+    'market_entry',
+    'post_game_questions',
+    'end',
 ]

@@ -1,27 +1,22 @@
-ARG PYTHON_VERSION=3.10-slim-bullseye
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
 
-FROM python:${PYTHON_VERSION}
+# Set the working directory in the container
+WORKDIR /app
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+# Copy the current directory contents into the container at /app
+COPY . /app
 
-# install psycopg2 dependencies.
-RUN apt-get update && apt-get install -y \
-    libpq-dev \
-    gcc \
-    && rm -rf /var/lib/apt/lists/*
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN mkdir -p /code
+# Create the _static directory
+RUN mkdir -p /app/_static
 
-WORKDIR /code
+# Collect static files
+RUN python manage.py collectstatic --noinput
 
-COPY requirements.txt /tmp/requirements.txt
-RUN set -ex && \
-    pip install --upgrade pip && \
-    pip install -r /tmp/requirements.txt && \
-    rm -rf /root/.cache/
-COPY . /code
-
+# Make port 8000 available to the world outside this container
 EXPOSE 8000
 
 # Define environment variable

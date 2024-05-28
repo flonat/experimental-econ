@@ -20,7 +20,7 @@ class Subsession(BaseSubsession):
             if 'treatment' not in player.participant.vars:
                 player.participant.vars['treatment'] = random.choice(treatments)
             player.treatment = player.participant.vars['treatment']
-            player.role = random.choice(['incumbent', 'challenger'])
+            player.player_role = random.choice(['incumbent', 'challenger'])
 
 class Group(BaseGroup):
     pass
@@ -32,12 +32,12 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     treatment = models.StringField()
-    role = models.StringField()
+    player_role = models.StringField()
 
     def set_payoff(self):
         num_competitors = random.randint(0, 5)  # Random number of competitors
 
-        if self.role == 'incumbent':
+        if self.player_role == 'incumbent':
             if self.decision == 'Enter':
                 if num_competitors < 3:
                     self.payoff = Constants.incumbent_benefit - Constants.entry_cost
