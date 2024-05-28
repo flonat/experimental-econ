@@ -1,3 +1,6 @@
+import os
+from os import environ
+
 SESSION_CONFIGS = [
     dict(
         name='otree_experimental_econ',
@@ -23,8 +26,35 @@ SESSION_CONFIG_DEFAULTS = dict(
     doc=""
 )
 
+# Other Django settings
+DEBUG = False
+
+ALLOWED_HOSTS = ['*']
+
+
+# Database settings
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+
 # Required apps for your project
-INSTALLED_APPS = ['otree']
+INSTALLED_APPS = [
+    'otree',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'romarin']
+SECRET_KEY = os.environ.get('SECRET_KEY', 'aPL!fPfTQm8FT-hGi786XF27RNsrqPGz3XYzZCV*')
+ADMIN_PASSWORD = os.environ.get('GarciaFaria73!')
 
 LANGUAGE_CODE = 'en'
 
