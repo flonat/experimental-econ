@@ -1,0 +1,14 @@
+{% extends "global/Page.html" %}
+{% block title %}Make Your Decision{% endblock %}
+
+{% block content %}
+<h2>Make Your Decision</h2>
+<p>
+    Please choose whether to enter the market or stay out.
+</p>
+<form method="post">
+    {% csrf_token %}
+    {{ formfield player.decision }}
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

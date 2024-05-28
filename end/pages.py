@@ -2,6 +2,7 @@ from otree.api import Currency as c, currency_range
 from otree.api import Page, WaitPage
 
 class EndPage(Page):
-    pass
+    def get_template_name(self):
+        return 'templates/EndPage.html'
 
 page_sequence = [EndPage]

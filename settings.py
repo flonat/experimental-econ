@@ -28,9 +28,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'introduction',
-    'prisoners_dilemma',
-    'public_goods',
-    'market_entry',
+    'prisoners_dilemma_1',
+    'public_goods_1',
+    'market_entry_1',
+    'prisoners_dilemma_2',
+    'public_goods_2',
+    'market_entry_2',
     'post_game_questions',
     'end',
 ]
@@ -78,13 +81,16 @@ SESSION_CONFIG_DEFAULTS = {
 SESSION_CONFIGS = [
     {
         'name': 'otree_experimental_econ',
-        'display_name': "Experimental Economics Survey",
+        'display_name': "Experimental Economics",
         'num_demo_participants': 4,
         'app_sequence': [
             'introduction',
-            'prisoners_dilemma',
-            'public_goods',
-            'market_entry',
+            'prisoners_dilemma_1',
+            'public_goods_1',
+            'market_entry_1',
+            'prisoners_dilemma_2',
+            'public_goods_2',
+            'market_entry_2',
             'post_game_questions',
             'end'
         ],
@@ -93,9 +99,12 @@ SESSION_CONFIGS = [
 
 INSTALLED_OTREE_APPS = [
     'introduction',
-    'prisoners_dilemma',
-    'public_goods',
-    'market_entry',
+    'prisoners_dilemma_1',
+    'public_goods_1',
+    'market_entry_1',
+    'prisoners_dilemma_2',
+    'public_goods_2',
+    'market_entry_2',
     'post_game_questions',
     'end',
 ]

@@ -1,0 +1,18 @@
+{% extends "global/Page.html" %}
+{% block title %}Results{% endblock %}
+
+{% block content %}
+<h2>Results</h2>
+<p>
+    The total contribution to the public pot is {{ total_contribution }}, including the computer's contribution of {{ computer_contribution }}.
+</p>
+<p>
+    Each participant receives an individual share of {{ individual_share }}.
+</p>
+<p>
+    Your total payoff is {{ payoff }}.
+</p>
+<form method="post">
+    <button type="submit">Next</button>
+</form>
+{% endblock %}

@@ -5,7 +5,7 @@ from otree.api import (
 import random
 
 class Constants(BaseConstants):
-    name_in_url = 'games'
+    name_in_url = 'introduction'
     players_per_group = None  # Adjust as needed for each game
     num_rounds = 2
     game_sequence = ['PrisonersDilemma', 'PublicGoods', 'MarketEntry']

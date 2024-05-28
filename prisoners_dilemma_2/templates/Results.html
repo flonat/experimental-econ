@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %}
+{% block title %}Results{% endblock %}
+
+{% block content %}
+<h2>Results</h2>
+<p>
+    You chose to {{ my_decision }}. The computer chose to {{ computer_decision }}.
+</p>
+<p>
+    Your payoff: {{ my_payoff }}
+</p>
+<form method="post">
+    <button type="submit">Next</button>
+</form>
+{% endblock %}

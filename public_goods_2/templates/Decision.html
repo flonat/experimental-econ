@@ -1,0 +1,14 @@
+{% extends "global/Page.html" %}
+{% block title %}Make Your Contribution{% endblock %}
+
+{% block content %}
+<h2>Make Your Contribution</h2>
+<p>
+    Please decide how much of your endowment you want to contribute to the public pot.
+</p>
+<form method="post">
+    {% csrf_token %}
+    {{ formfield player.contribution }}
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
