@@ -8,15 +8,15 @@ class Introduction(Page):
         return self.round_number == 1
 
     def get_template_name(self):
-        return 'templates/Introduction.html'
+        return 'Introduction.html'
 
 class InformationSheet(Page):
     def get_template_name(self):
-        return 'templates/InformationSheet.html'
+        return 'InformationSheet.html'
 
 class ProlificSheet(Page):
     def get_template_name(self):
-        return 'templates/ProlificSheet.html'
+        return 'ProlificSheet.html'
 
 class ConsentForm(Page):
     form_model = 'player'
@@ -30,7 +30,7 @@ class ConsentForm(Page):
             self.participant.vars['consent'] = False
 
     def get_template_name(self):
-        return 'templates/ConsentForm.html'
+        return 'ConsentForm.html'
 
 class FollowUpQuestion(Page):
     form_model = 'player'
@@ -41,14 +41,14 @@ class FollowUpQuestion(Page):
         self.participant.vars['redirect_url'] = redirect_url
 
     def get_template_name(self):
-        return 'templates/FollowUpQuestion.html'
+        return 'FollowUpQuestion.html'
 
 class GamesIntro(Page):
     def is_displayed(self):
         return self.round_number == 1 and self.participant.vars.get('consent', True)
 
     def get_template_name(self):
-        return 'templates/GamesIntro.html'
+        return 'GamesIntro.html'
 
 page_sequence = [
     Introduction,

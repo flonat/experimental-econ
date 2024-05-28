@@ -8,7 +8,7 @@ class GeneralQuestions(Page):
     form_fields = ['age', 'gender', 'education', 'employment']
     
     def get_template_name(self):
-        return 'template/GeneralQuestions.html'
+        return 'GeneralQuestions.html'
 
 class SpecificQuestions(Page):
     template_name = 'template/SpecificQuestions.html'
@@ -20,6 +20,6 @@ class SpecificQuestions(Page):
     ]
     
     def get_template_name(self):
-        return 'template/SpecificQuestions.html'
+        return 'SpecificQuestions.html'
 
 page_sequence = [GeneralQuestions, SpecificQuestions]

@@ -4,7 +4,7 @@ from .models import Constants
 
 class Intro(Page):
     def get_template_name(self):
-        return 'template/Intro.html'
+        return 'Intro.html'
 
 class Decision(Page):
     form_model = 'player'
@@ -20,7 +20,7 @@ class Decision(Page):
         self.group.set_payoffs()
         
     def get_template_name(self):
-        return 'template/Decision.html'
+        return 'Decision.html'
 
 class Results(Page):
     def vars_for_template(self):
@@ -32,6 +32,6 @@ class Results(Page):
         }.payoff,
     
     def get_template_name(self):
-        return 'template/Results.html'
+        return 'Results.html'
         
 page_sequence = [Intro, Decision, Results]

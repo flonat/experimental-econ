@@ -3,11 +3,10 @@ from otree.api import Page, WaitPage
 from .models import Constants
 
 class Intro(Page):
-    template_name = 'template/Intro.html'
-    pass
+    def get_template_name(self):
+        return 'Intro.html'
 
 class Decision(Page):
-    template_name = 'template/Decision.html'
     form_model = 'player'
     form_fields = ['decision']
 
@@ -24,14 +23,19 @@ class Decision(Page):
             else:
                 self.player.decision = 'Enter'
         self.player.set_payoff()
+    
+    def get_template_name(self):
+        return 'Decision.html'
 
 class Results(Page):
-    template_name = 'template/Results.html'
     def vars_for_template(self):
         return {
             'my_decision': self.player.decision,
             'player_role': self.player.player_role,
             'payoff': self.player.payoff,
         }
+    
+    def get_template_name(self):
+        return 'Results.html'
 
 page_sequence = [Intro, Decision, Results]

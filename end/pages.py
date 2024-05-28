@@ -3,6 +3,6 @@ from otree.api import Page, WaitPage
 
 class EndPage(Page):
     def get_template_name(self):
-        return 'templates/EndPage.html'
+        return 'EndPage.html'
 
 page_sequence = [EndPage]
