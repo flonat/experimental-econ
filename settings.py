@@ -5,12 +5,16 @@ SESSION_CONFIGS = [
         num_demo_participants=4,
         app_sequence=[
             'introduction',
-            'games',
+            'prisoners_dilemma',  # Add the Prisoner's Dilemma game here
+            'public_goods',
+            'market_entry',
             'post_game_questions',
             'end'
         ],
     ),
+    # Add other session configs here
 ]
+
 
 # Default session configurations
 SESSION_CONFIG_DEFAULTS = dict(
