@@ -1,4 +1,4 @@
-otree
+otree==5.4.0
 django
 gunicorn
 psycopg2-binary
